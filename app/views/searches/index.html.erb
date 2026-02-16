@@ -1,0 +1,76 @@
+<section class="max-w-5xl mx-auto py-10">
+
+  <h1 class="text-3xl font-bold text-purple-700 mb-8">
+    My Saved Searches
+  </h1>
+
+  <% if @searches.any? %>
+
+    <div class="space-y-6">
+
+      <% @searches.each do |search| %>
+        <% rules = search.rules %>
+
+        <div class="bg-white shadow rounded-xl p-6 flex justify-between items-center hover:shadow-lg transition">
+
+          <!-- LEFT: Search Info -->
+          <div class="space-y-2 text-sm text-gray-700">
+
+            <div class="flex gap-4 flex-wrap">
+              <span><strong>Make:</strong> <%= rules["make"].presence || "-" %></span>
+              <span><strong>Model:</strong> <%= rules["model"].presence || "-" %></span>
+            </div>
+
+            <div class="flex gap-4 flex-wrap">
+              <span><strong>Year:</strong>
+                <%= rules["year_from"].presence || "Any" %> –
+                <%= rules["year_to"].presence || "Any" %>
+              </span>
+
+              <span><strong>Price:</strong>
+                <%= rules["price_from"].presence || "Any" %> –
+                <%= rules["price_to"].presence || "Any" %>
+              </span>
+            </div>
+
+            <div class="text-xs text-gray-500">
+              Requests: <span class="font-semibold"><%= search.requests_quantity %></span>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Buttons -->
+          <div class="flex gap-3">
+
+            <%= link_to "Run Search",
+                  cars_path(rules),
+                  class: "px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition text-sm" %>
+
+            <%= link_to "Delete",
+                  search_path(search),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "px-4 py-2 rounded border border-gray-200 hover:bg-gray-200 transition text-sm" %>
+
+          </div>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  <% else %>
+
+    <div class="bg-white shadow rounded-xl p-8 text-center text-gray-500">
+      No saved searches yet.
+    </div>
+
+  <% end %>
+
+  <div class="mt-8">
+    <%= link_to "Back to Home",
+          root_path,
+          class: "inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200" %>
+  </div>
+
+</section>

@@ -1,0 +1,66 @@
+<section class="min-h-[70vh] flex items-center justify-center">
+
+  <div class="w-full max-w-md bg-white shadow-xl rounded-xl p-8">
+
+    <h2 class="text-2xl font-bold text-purple-700 mb-2 text-center">
+      Login
+    </h2>
+
+    <p class="text-gray-600 text-sm mb-6 text-center">
+      Sign in to your account to save searches and manage preferences.
+    </p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <!-- Email -->
+      <div class="mb-4">
+        <%= f.label :email, class: "block text-sm font-medium mb-1" %>
+        <%= f.email_field :email,
+              autofocus: true,
+              autocomplete: "email",
+              placeholder: "Enter your email",
+              class: "w-full border rounded-lg p-2 focus:ring-2 focus:ring-purple-400 focus:outline-none transition" %>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-4">
+        <%= f.label :password, class: "block text-sm font-medium mb-1" %>
+        <%= f.password_field :password,
+              autocomplete: "current-password",
+              placeholder: "Enter your password",
+              class: "w-full border rounded-lg p-2 focus:ring-2 focus:ring-purple-400 focus:outline-none transition" %>
+      </div>
+
+      <!-- Remember me + Forgot password -->
+      <div class="flex items-center justify-between mb-6 text-sm">
+
+        <div class="flex items-center gap-2">
+          <%= f.check_box :remember_me,
+                class: "rounded border-gray-300 text-purple-600 focus:ring-purple-500" %>
+          <%= f.label :remember_me, "Remember me", class: "text-gray-700" %>
+        </div>
+
+        <%= link_to "Forgot password?",
+              new_password_path(resource_name),
+              class: "text-purple-600 hover:underline" %>
+
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <%= f.submit "Sign in",
+              class: "w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition" %>
+      </div>
+
+    <% end %>
+
+    <div class="mt-6 text-center text-sm">
+      Don't have an account?
+      <%= link_to "Sign up",
+            new_registration_path(resource_name),
+            class: "text-purple-600 hover:underline font-medium" %>
+    </div>
+
+  </div>
+
+</section>

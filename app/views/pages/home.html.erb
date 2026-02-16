@@ -1,0 +1,56 @@
+<section class="py-16 text-center">
+  <h1 class="text-4xl font-extrabold text-purple-700">
+    Welcome to Car Advertisements Web
+  </h1>
+
+  <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+    Browse, search, and manage car advertisements. This is a simple learning
+    project demonstrating basic CRUD operations and authentication patterns.
+  </p>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+  
+  <%= link_to cars_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700">Browse Cars</h2>
+    <p class="mt-2 text-gray-600">
+      View all car advertisements with sorting and pagination.
+    </p>
+  <% end %>
+
+  <%= link_to new_search_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700">Search</h2>
+    <p class="mt-2 text-gray-600">
+      Find specific cars using advanced search filters.
+    </p>
+  <% end %>
+
+  <%= link_to new_user_registration_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700">Create Account</h2>
+    <p class="mt-2 text-gray-600">
+      Sign up to save searches and manage your preferences.
+    </p>
+  <% end %>
+
+  <%= link_to help_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700">Help</h2>
+    <p class="mt-2 text-gray-600">
+      Learn how to use the platform and find answers to common questions.
+    </p>
+  <% end %>
+
+</section>
+
+<section class="mt-16 text-center bg-gray-50 rounded-lg py-5 border border-gray-200">
+  <h2 class="text-2xl font-bold text-gray-800">About This Project</h2>
+
+  <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+    This is a reference implementation for learning Ruby on Rails with a
+    Tailwind CSS frontend. The UI is intentionally minimal to focus on
+    functionality and best practices.
+  </p>
+</section>

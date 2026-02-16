@@ -1,0 +1,64 @@
+<section class="max-w-2xl mx-auto">
+
+  <h1 class="text-3xl font-bold text-purple-700 mb-6">
+    <%= @car.new_record? ? "Add New Car" : "Edit Car" %>
+  </h1>
+
+  <%= form_with model: @car, class: "space-y-6 bg-white p-6 rounded-xl shadow" do |f| %>
+
+    <% if @car.errors.any? %>
+      <div class="bg-red-100 border border-red-300 text-red-700 p-4 rounded">
+        <h3 class="font-semibold mb-2">
+          <%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:
+        </h3>
+        <ul class="list-disc list-inside text-sm">
+          <% @car.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.label :make, class: "block font-medium mb-1" %>
+      <%= f.text_field :make,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div>
+      <%= f.label :model, class: "block font-medium mb-1" %>
+      <%= f.text_field :model,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div>
+      <%= f.label :year, class: "block font-medium mb-1" %>
+      <%= f.number_field :year,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div>
+      <%= f.label :odometer, class: "block font-medium mb-1" %>
+      <%= f.number_field :odometer,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div>
+      <%= f.label :price, class: "block font-medium mb-1" %>
+      <%= f.number_field :price,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div>
+      <%= f.label :description, class: "block font-medium mb-1" %>
+      <%= f.text_area :description, rows: 4,
+            class: "w-full border border-gray-200 rounded p-2 focus:ring-2 focus:ring-purple-600 focus:outline-none" %>
+    </div>
+
+    <div class="pt-4">
+      <%= f.submit class: "px-6 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition" %>
+    </div>
+
+  <% end %>
+
+</section>

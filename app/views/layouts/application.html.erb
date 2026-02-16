@@ -22,8 +22,60 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <body class="min-h-screen flex flex-col bg-gray-50">
 
-  <body>
-    <%= yield %>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-white flex flex-col flex-grow">
+
+      <header class="text-purple-600 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-xl font-bold">
+            <%= link_to "Car Advertisements Web", root_path, class: "hover:text-purple-800" %>
+          </div>
+
+          <nav class="space-x-4">
+            <%= link_to "Home", root_path, class: "hover:text-purple-800" %>
+            <%= link_to "Cars", cars_path, class: "hover:text-purple-800" %>
+            <%= link_to "Search", new_search_path, class: "hover:text-purple-800" %>
+            <%= link_to "Help", help_path, class: "hover:text-purple-800" %>
+
+            <% if user_signed_in? %>
+              <%= link_to "My Searches", searches_path, class: "px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700" %>
+              <%= link_to "Log Out", destroy_user_session_path,
+                    data: { turbo_method: :delete },
+                    class: "px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700" %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path,
+                    class: "px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700" %>
+              <%= link_to "Sign Up", new_user_registration_path,
+                    class: "px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700" %>
+            <% end %>
+
+            
+          </nav>
+        </div>
+      </header>
+
+      <% if notice %>
+        <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <main class="flex-grow py-6">
+        <%= yield %>
+      </main>
+
+    </div>
+
+    <footer class=" text-gray-500 p-4 text-center border-t-2 border-gray-300">
+      © <%= Date.current.year %> Cars Advertisements Web Company
+    </footer>
+
   </body>
 </html>

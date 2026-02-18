@@ -1,7 +1,18 @@
 require "ffaker"
 
 puts "Cleaning database..."
-Car.destroy_all
+
+if ENV["ADMIN_EMAIL"].present? && ENV["ADMIN_PASSWORD"].present?
+  admin = User.find_or_create_by!(email: ENV["ADMIN_EMAIL"]) do |user|
+    user.password = ENV["ADMIN_PASSWORD"]
+    user.password_confirmation = ENV["ADMIN_PASSWORD"]
+    user.admin = true
+  end
+
+  puts "Admin created: #{admin.email}"
+else
+  puts "ADMIN ENV variables not set, skipping admin creation"
+end
 
 makes = %w[Toyota BMW Audi Honda Ford Mazda Kia Nissan Volvo Lexus]
 models = %w[Corolla Civic Focus Passat Camry Accord CXFive XTrail AClass]

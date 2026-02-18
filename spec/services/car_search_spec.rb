@@ -12,7 +12,7 @@ RSpec.describe CarSearch, type: :service do
       let!(:car2) { create(:car) }
 
       it "returns all cars sorted by default" do
-        expect(service).to match_array([car1, car2])
+        expect(service).to match_array([ car1, car2 ])
       end
     end
 

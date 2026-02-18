@@ -70,8 +70,6 @@ group :development do
   gem "traceroute", require: false
   gem "fasterer", require: false
   gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "shoulda-matchers"
   gem "simplecov", require: false
 end
 
@@ -82,4 +80,6 @@ group :test do
 end
 group :development, :test do
   gem "ffaker"
+  gem "factory_bot_rails"
+  gem "shoulda-matchers"
 end

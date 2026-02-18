@@ -1,12 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :search do
+    rules { { make: "Toyota", min_price: 5000 }.to_json }
     association :user
-    rules do
-      {
-        "make" => "BMW",
-        "year_from" => "2018"
-      }
-    end
-    requests_quantity { 1 }
   end
 end

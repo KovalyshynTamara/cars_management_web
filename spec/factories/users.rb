@@ -1,12 +1,7 @@
 FactoryBot.define do
   factory :user do
-    full_name { "John Doe" }
     email { FFaker::Internet.email }
     password { "password123" }
-    role { "user" }
-
-    trait :admin do
-      role { "admin" }
-    end
+    password_confirmation { "password123" }
   end
 end

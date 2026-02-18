@@ -4,7 +4,7 @@ puts "Cleaning database..."
 Car.destroy_all
 
 makes = %w[Toyota BMW Audi Honda Ford Mazda Kia Nissan Volvo Lexus]
-models = %w[Corolla Civic Focus Passat Camry Accord CXFive XTrail AClass XC60]
+models = %w[Corolla Civic Focus Passat Camry Accord CXFive XTrail AClass]
 
 puts "Creating cars..."
 

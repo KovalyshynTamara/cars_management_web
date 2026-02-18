@@ -1,11 +1,10 @@
 <section class="py-16 text-center">
   <h1 class="text-4xl font-extrabold text-purple-700">
-    Welcome to Car Advertisements Web
+    <%= t("app.name") %>
   </h1>
 
   <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-    Browse, search, and manage car advertisements. This is a simple learning
-    project demonstrating basic CRUD operations and authentication patterns.
+    <%= t("home.hero_description") %>
   </p>
 </section>
 
@@ -13,44 +12,42 @@
   
   <%= link_to cars_path,
         class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
-    <h2 class="text-xl font-semibold text-purple-700">Browse Cars</h2>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.cars") %></h2>
     <p class="mt-2 text-gray-600">
-      View all car advertisements with sorting and pagination.
+      <%= t("home.browse_description") %>
     </p>
   <% end %>
 
   <%= link_to new_search_path,
         class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
-    <h2 class="text-xl font-semibold text-purple-700">Search</h2>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.search") %></h2>
     <p class="mt-2 text-gray-600">
-      Find specific cars using advanced search filters.
+      <%= t("home.search_description") %>
     </p>
   <% end %>
 
   <%= link_to new_user_registration_path,
         class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
-    <h2 class="text-xl font-semibold text-purple-700">Create Account</h2>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.sign_up") %></h2>
     <p class="mt-2 text-gray-600">
-      Sign up to save searches and manage your preferences.
+      <%= t("home.signup_description") %>
     </p>
   <% end %>
 
   <%= link_to help_path,
         class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
-    <h2 class="text-xl font-semibold text-purple-700">Help</h2>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.help") %></h2>
     <p class="mt-2 text-gray-600">
-      Learn how to use the platform and find answers to common questions.
+      <%= t("home.help_description") %>
     </p>
   <% end %>
 
 </section>
 
 <section class="mt-16 text-center bg-gray-50 rounded-lg py-5 border border-gray-200">
-  <h2 class="text-2xl font-bold text-gray-800">About This Project</h2>
+  <h2 class="text-2xl font-bold text-gray-800"><%= t("home.about_title") %></h2>
 
   <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-    This is a reference implementation for learning Ruby on Rails with a
-    Tailwind CSS frontend. The UI is intentionally minimal to focus on
-    functionality and best practices.
+    <%= t("home.about_description") %>
   </p>
 </section>

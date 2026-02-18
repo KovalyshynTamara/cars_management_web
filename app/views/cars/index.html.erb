@@ -1,15 +1,18 @@
 <section class="py-8">
 
   <div class="flex justify-between items-center mb-6">
-    <h1 class="text-3xl font-bold text-purple-700">Car Listings</h1>
+    <h1 class="text-3xl font-bold text-purple-700">
+      <%= t("cars.index.title") %>
+    </h1>
 
     <div class="flex gap-3">
 
-      <%= link_to "Advanced Search →",
+      <%= link_to t("cars.index.advanced_search"),
             new_search_path,
             class: "px-4 py-2 text-purple-600 rounded-lg hover:text-purple-900" %>
+
       <% if current_user&.admin? %>
-        <%= link_to "Add New Car",
+        <%= link_to t("cars.index.add_new"),
               new_car_path,
               class: "px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition" %>
       <% end %>
@@ -18,16 +21,19 @@
 
   <div class="flex justify-between">
     <p class="mb-4 text-gray-600 text-sm">
-      Showing
-      <span><%= @pagy.from %></span> – <span><%= @pagy.to %></span> of <span><%= @pagy.count %></span> results
+      <%= t("cars.index.showing") %>
+      <span><%= @pagy.from %></span> –
+      <span><%= @pagy.to %></span>
+      <%= t("cars.index.of") %>
+      <span><%= @pagy.count %></span>
+      <%= t("cars.index.results") %>
     </p>
 
-
     <div class="mb-6 text-sm flex items-center gap-3">
-
       <label class="font-medium text-gray-700">
-        Sort by:
+        <%= t("cars.index.sort_by") %>
       </label>
+
       <%= form_with url: cars_path, method: :get, local: true do %>
 
         <% params.except(:sort, :direction, :page).each do |key, value| %>
@@ -35,32 +41,25 @@
         <% end %>
 
         <%= select_tag :sorting,
-              options_for_select([
-                ["Price: Low to High", "price_asc"],
-                ["Price: High to Low", "price_desc"],
-                ["Date: Most Recent", "date_desc"],
-                ["Date: Oldest First", "date_asc"]
-              ], "#{params[:sort]}_#{params[:direction]}"),
-              class: "border-2 border-purple-600 rounded px-3 py-2 focus:ring-2 focus:ring-purple-600 focus:outline-none",
-              onchange: "this.form.submit();" %>
-
+          options_for_select(sorting_options, selected_sorting),
+          class: "border-2 border-purple-600 rounded px-3 py-2 focus:ring-2 focus:ring-purple-600 focus:outline-none",
+          onchange: "this.form.submit();" %>
       <% end %>
     </div>
   </div>
-
 
   <div class="overflow-x-auto bg-white shadow rounded-lg">
     <table class="min-w-full border-collapse">
       <thead class="bg-gray-100 text-left text-sm font-semibold text-gray-700">
         <tr>
-          <th class="p-3">Id</th>
-          <th class="p-3">Make</th>
-          <th class="p-3">Model</th>
-          <th class="p-3">Year</th>
-          <th class="p-3">Odometer</th>
-          <th class="p-3">Price</th>
-          <th class="p-3">Description</th>
-          <th class="p-3">Date added</th>
+          <th class="p-3"><%= t("cars.attributes.id") %></th>
+          <th class="p-3"><%= t("cars.attributes.make") %></th>
+          <th class="p-3"><%= t("cars.attributes.model") %></th>
+          <th class="p-3"><%= t("cars.attributes.year") %></th>
+          <th class="p-3"><%= t("cars.attributes.odometer") %></th>
+          <th class="p-3"><%= t("cars.attributes.price") %></th>
+          <th class="p-3"><%= t("cars.attributes.description") %></th>
+          <th class="p-3"><%= t("cars.attributes.date_added") %></th>
         </tr>
       </thead>
 
@@ -77,23 +76,20 @@
             <td class="p-3"><%= car.odometer %></td>
             <td class="p-3 font-semibold">$<%= car.price %></td>
             <td class="p-3"><%= truncate(car.description, length: 40) %></td>
-            <td class="p-3"><%= car.date_added.strftime("%d %b %Y") %></td>
+            <td class="p-3"><%= l(car.date_added) %></td>
           </tr>
         <% end %>
       </tbody>
-
     </table>
   </div>
 
-<div class="mt-8 flex justify-center">
-  <%= pagy_nav(@pagy).html_safe %>
-</div>
-
-
-
+  <div class="mt-8 flex justify-center">
+    <%= pagy_nav(@pagy).html_safe %>
+  </div>
 
   <div class="mt-8">
-    <%= link_to "Back to Home page", root_path,
+    <%= link_to t("cars.index.back_home"),
+          root_path,
           class: "inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200" %>
   </div>
 

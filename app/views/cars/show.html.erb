@@ -9,35 +9,35 @@
     <div class="grid grid-cols-2 gap-6 text-sm text-gray-700">
 
       <div>
-        <p class="text-gray-500">Year</p>
+        <p class="text-gray-500"><%= t("cars.attributes.year") %></p>
         <p class="font-semibold text-lg"><%= @car.year %></p>
       </div>
 
       <div>
-        <p class="text-gray-500">Odometer</p>
+        <p class="text-gray-500"><%= t("cars.attributes.odometer") %></p>
         <p class="font-semibold text-lg">
-          <%= number_with_delimiter(@car.odometer) %> km
+          <%= number_with_delimiter(@car.odometer) %> <%= t("cars.units.km") %>
         </p>
       </div>
 
       <div>
-        <p class="text-gray-500">Price</p>
+        <p class="text-gray-500"><%= t("cars.attributes.price") %></p>
         <p class="font-semibold text-xl text-purple-700">
-          $<%= number_with_delimiter(@car.price) %>
+          <%= number_to_currency(@car.price) %>
         </p>
       </div>
 
       <div>
-        <p class="text-gray-500">Date added</p>
+        <p class="text-gray-500"><%= t("cars.attributes.date_added") %></p>
         <p class="font-semibold">
-          <%= @car.date_added.strftime("%d %b %Y") %>
+          <%= l(@car.date_added) %>
         </p>
       </div>
 
     </div>
 
     <div class="mt-6">
-      <p class="text-gray-500 mb-2">Description</p>
+      <p class="text-gray-500 mb-2"><%= t("cars.attributes.description") %></p>
       <p class="text-gray-700 leading-relaxed">
         <%= @car.description %>
       </p>
@@ -45,16 +45,17 @@
 
     <div class="mt-8 flex gap-4">
       <% if current_user&.admin? %>
-        <%= link_to "Edit",
+        <%= link_to t("cars.show.edit"),
               edit_car_path(@car),
               class: "px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition" %>
 
-        <%= link_to "Delete",
+        <%= link_to t("cars.show.delete"),
               car_path(@car),
-              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-            class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" %>
+              data: { turbo_method: :delete, turbo_confirm: t("cars.show.confirm_delete") },
+              class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" %>
       <% end %>
-      <%= link_to "Back to Cars",
+
+      <%= link_to t("cars.show.back"),
             cars_path,
             class: "inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200" %>
 

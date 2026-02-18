@@ -10,20 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_16_112025) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_18_122236) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "pg_catalog.plpgsql"
 
   create_table "cars", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.date "date_added"
     t.text "description"
-    t.string "make"
-    t.string "model"
+    t.citext "make"
+    t.citext "model"
     t.integer "odometer"
     t.integer "price"
     t.datetime "updated_at", null: false
     t.integer "year"
+    t.index ["date_added"], name: "index_cars_on_date_added"
+    t.index ["make"], name: "index_cars_on_make"
+    t.index ["model"], name: "index_cars_on_model"
+    t.index ["price"], name: "index_cars_on_price"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -37,6 +42,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_112025) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false, null: false
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,7 +50,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_112025) do
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
-    t.string "role"
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

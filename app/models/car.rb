@@ -1,30 +1,42 @@
 class Car < ApplicationRecord
-  validates :make, presence: true,
-                   length: { minimum: 3, maximum: 50 },
-                   format: { with: /\A[A-Za-z]+\z/ }
+  NAME_LENGTH_RANGE = 3..50
+  NAME_FORMAT       = /\A[A-Za-z]+\z/
+  MIN_YEAR          = 1901
+  MIN_NUMBER        = 0
+  MAX_DESCRIPTION   = 5000
 
-  validates :model, presence: true,
-                    length: { minimum: 3, maximum: 50 },
-                    format: { with: /\A[A-Za-z]+\z/ }
+  attribute :date_added, :date, default: -> { Date.current }
 
-  validates :year, presence: true,
-                   numericality: { only_integer: true,
-                                   greater_than_or_equal_to: 1901,
-                                   less_than_or_equal_to: ->(_) { Time.current.year } }
-
-  validates :odometer, presence: true,
-                       numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-
-  validates :price, presence: true,
-                    numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-
-  validates :description, length: { maximum: 5000 }, allow_nil: true
-
-  before_create :set_date_added
-
-  private
-
-  def set_date_added
-    self.date_added ||= Date.today
+  with_options presence: true,
+               length: { in: NAME_LENGTH_RANGE },
+               format: { with: NAME_FORMAT } do
+    validates :make
+    validates :model
   end
+
+  validates :year,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: MIN_YEAR,
+              less_than_or_equal_to: ->(_) { Time.current.year }
+            }
+
+  validates :odometer,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: MIN_NUMBER
+            }
+
+  validates :price,
+            presence: true,
+            numericality: {
+              only_integer: true,
+              greater_than_or_equal_to: MIN_NUMBER
+            }
+
+  validates :description,
+            length: { maximum: MAX_DESCRIPTION },
+            allow_nil: true
 end

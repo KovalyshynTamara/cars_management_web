@@ -6,14 +6,25 @@ class SearchesController < ApplicationController
 
   def create
     search = CarSearch.new(Car.all, search_params)
-    cars = search.call
+    cars   = search.call
 
     if user_signed_in?
-      SearchStatisticsService.new(current_user, search_params.to_h, cars.count).call
+      stats = SearchStatisticsService.new(
+        user: current_user,
+        rules: search_params.to_h,
+        total_quantity: cars.count
+      ).call
+
+      unless stats
+        flash.now[:alert] = "Could not save search statistics."
+        @cars = cars
+        return render :new, status: :unprocessable_entity
+      end
     end
 
     redirect_to cars_path(search_params)
   end
+
 
   def index
     @searches = current_user.searches
@@ -21,8 +32,11 @@ class SearchesController < ApplicationController
 
   def destroy
     @search = current_user.searches.find(params[:id])
-    @search.destroy
-    redirect_to searches_path, notice: "Search deleted successfully."
+    if @search.destroy
+      redirect_to searches_path, notice: "Search was successfully deleted."
+    else
+      redirect_to searches_path, alert: "Failed to delete search."
+    end
   end
 
   private

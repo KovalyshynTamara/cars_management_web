@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.pagy-nav .page a {
+  @apply px-3 py-1 mx-1 rounded border bg-white hover:bg-purple-200 transition border-gray-200 text-base;
+}
+
+.pagy-nav .active {
+  @apply bg-purple-600 text-white px-3 py-1 mx-1 rounded border border-purple-600;
+}
+
+.pagy-nav .disabled {
+  @apply text-gray-400 cursor-not-allowed px-3 py-1 mx-1 border rounded border-gray-200;
+}

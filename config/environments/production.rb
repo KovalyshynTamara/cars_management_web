@@ -89,4 +89,5 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.cache_store = :memory_store
   config.active_job.queue_adapter = :async
+  config.require_master_key = true
 end

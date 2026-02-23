@@ -1,0 +1,66 @@
+<section class="max-w-3xl mx-auto py-10">
+
+  <div class="bg-white shadow rounded-xl p-8">
+
+    <h1 class="text-3xl font-bold text-purple-700 mb-6">
+      <%= @car.make %> <%= @car.model %>
+    </h1>
+
+    <div class="grid grid-cols-2 gap-6 text-sm text-gray-700">
+
+      <div>
+        <p class="text-gray-500"><%= t("cars.attributes.year") %></p>
+        <p class="font-semibold text-lg"><%= @car.year %></p>
+      </div>
+
+      <div>
+        <p class="text-gray-500"><%= t("cars.attributes.odometer") %></p>
+        <p class="font-semibold text-lg">
+          <%= number_with_delimiter(@car.odometer) %> <%= t("cars.units.km") %>
+        </p>
+      </div>
+
+      <div>
+        <p class="text-gray-500"><%= t("cars.attributes.price") %></p>
+        <p class="font-semibold text-xl text-purple-700">
+          <%= number_to_currency(@car.price) %>
+        </p>
+      </div>
+
+      <div>
+        <p class="text-gray-500"><%= t("cars.attributes.date_added") %></p>
+        <p class="font-semibold">
+          <%= l(@car.date_added) %>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-6">
+      <p class="text-gray-500 mb-2"><%= t("cars.attributes.description") %></p>
+      <p class="text-gray-700 leading-relaxed">
+        <%= @car.description %>
+      </p>
+    </div>
+
+    <div class="mt-8 flex gap-4">
+      <% if current_user&.admin? %>
+        <%= link_to t("cars.show.edit"),
+              edit_car_path(@car),
+              class: "px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition" %>
+
+        <%= link_to t("cars.show.delete"),
+              car_path(@car),
+              data: { turbo_method: :delete, turbo_confirm: t("cars.show.confirm_delete") },
+              class: "px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition" %>
+      <% end %>
+
+      <%= link_to t("cars.show.back"),
+            cars_path,
+            class: "inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200" %>
+
+    </div>
+
+  </div>
+
+</section>

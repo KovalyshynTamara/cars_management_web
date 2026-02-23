@@ -1,0 +1,86 @@
+<div class="max-w-4xl mx-auto px-6 py-12">
+
+  <h1 class="text-4xl font-bold mb-8 text-center">
+    <%= t("app.name") %>
+  </h1>
+
+  <h2 class="text-2xl font-semibold mb-4">
+    <%= t("help.title") %>
+  </h2>
+
+  <h3 class="text-xl font-semibold mt-8 mb-3">
+    <%= t("help.getting_started") %>
+  </h3>
+
+  <div class="space-y-6">
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.steps.browse.title") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.steps.browse.text") %>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.steps.search.title") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.steps.search.text") %>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.steps.account.title") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.steps.account.text") %>
+      </p>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-semibold mt-10 mb-4">
+    <%= t("help.faq_title") %>
+  </h3>
+
+  <div class="space-y-6">
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.faq.save_search.q") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.faq.save_search.a_html") %>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.faq.sort.q") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.faq.sort.a") %>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.faq.results.q") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.faq.results.a_html") %>
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold text-lg"><%= t("help.faq.real.q") %></h4>
+      <p class="text-gray-700 mt-1">
+        <%= t("help.faq.real.a") %>
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-gray-100 p-5 rounded mt-10 border border-gray-200">
+    <h3 class="text-xl font-semibold mb-3">
+      <%= t("help.more_help.title") %>
+    </h3>
+    <p class="text-gray-700">
+      <%= t("help.more_help.text") %>
+    </p>
+  </div>
+
+  <div class="mt-10 text-center">
+    <%= link_to t("help.back_home"), root_path,
+        class: "inline-block bg-purple-600 text-white px-6 py-3 rounded-lg shadow hover:bg-purple-700 transition duration-200" %>
+  </div>
+
+</div>

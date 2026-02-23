@@ -1,0 +1,53 @@
+<section class="py-16 text-center">
+  <h1 class="text-4xl font-extrabold text-purple-700">
+    <%= t("app.name") %>
+  </h1>
+
+  <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+    <%= t("home.hero_description") %>
+  </p>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+  
+  <%= link_to cars_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.cars") %></h2>
+    <p class="mt-2 text-gray-600">
+      <%= t("home.browse_description") %>
+    </p>
+  <% end %>
+
+  <%= link_to new_search_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.search") %></h2>
+    <p class="mt-2 text-gray-600">
+      <%= t("home.search_description") %>
+    </p>
+  <% end %>
+
+  <%= link_to new_user_registration_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.sign_up") %></h2>
+    <p class="mt-2 text-gray-600">
+      <%= t("home.signup_description") %>
+    </p>
+  <% end %>
+
+  <%= link_to help_path,
+        class: "block p-6 bg-white rounded-lg shadow hover:shadow-lg transition border border-gray-200" do %>
+    <h2 class="text-xl font-semibold text-purple-700"><%= t("navigation.help") %></h2>
+    <p class="mt-2 text-gray-600">
+      <%= t("home.help_description") %>
+    </p>
+  <% end %>
+
+</section>
+
+<section class="mt-16 text-center bg-gray-50 rounded-lg py-5 border border-gray-200">
+  <h2 class="text-2xl font-bold text-gray-800"><%= t("home.about_title") %></h2>
+
+  <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+    <%= t("home.about_description") %>
+  </p>
+</section>

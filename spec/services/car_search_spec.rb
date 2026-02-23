@@ -1,5 +1,3 @@
-require "rails_helper"
-
 RSpec.describe CarSearch, type: :service do
   subject(:service) { described_class.new(scope, params).call }
 

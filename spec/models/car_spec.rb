@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Car, type: :model do
   subject(:car) { build(:car) }
 
@@ -40,7 +38,6 @@ RSpec.describe Car, type: :model do
         .is_greater_than_or_equal_to(0)
     end
 
-    # price
     it { is_expected.to validate_presence_of(:price) }
 
     it do
@@ -51,7 +48,7 @@ RSpec.describe Car, type: :model do
 
     it do
       is_expected.to validate_length_of(:description)
-        .is_at_most(5000)
+        .is_at_most(described_class::MAX_DESCRIPTION)
     end
   end
 

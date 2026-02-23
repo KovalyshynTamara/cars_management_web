@@ -33,9 +33,9 @@ class SearchesController < ApplicationController
   def destroy
     @search = current_user.searches.find(params[:id])
     if @search.destroy
-      redirect_to searches_path, notice: "Search was successfully deleted."
+      redirect_to searches_path, notice: t(".success")
     else
-      redirect_to searches_path, alert: "Failed to delete search."
+      redirect_to searches_path, alert: t(".failure")
     end
   end
 

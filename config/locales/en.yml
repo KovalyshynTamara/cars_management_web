@@ -49,6 +49,29 @@ en:
       submit: "Save Car"
       back_to_cars: "← Back to Cars"
 
+    create:
+      success: "Car was successfully created."
+    update:
+      success: "Car was successfully updated."
+    destroy:
+      success: "Car was successfully deleted."
+      failure: "Car could not be deleted."
+
+    units:
+      km: "km"
+
+    show:
+      edit: "Edit"
+      delete: "Delete"
+      back: "Back to Cars"
+      confirm_delete: "Are you sure?"
+    
+    sorting:
+      price_asc: "Price: Low to High"
+      price_desc: "Price: High to Low"
+      date_desc: "Date: Most Recent"
+      date_asc: "Date: Oldest First"
+
   activerecord:
     models:
       car: "Car"
@@ -65,17 +88,7 @@ en:
     formats:
       default: "%Y-%m-%d"
       short: "%d %b %Y"
-
-  cars:
-    units:
-      km: "km"
-
-    show:
-      edit: "Edit"
-      delete: "Delete"
-      back: "Back to Cars"
-      confirm_delete: "Are you sure?"
-
+    
   number:
     currency:
       format:
@@ -85,7 +98,7 @@ en:
         separator: "."
         precision: 0
 
-  en:
+
   help:
     title: "Help & Documentation"
     getting_started: "Getting Started"
@@ -134,6 +147,10 @@ en:
     actions:
       run: "Run Search"
       delete: "Delete"
+    
+    destroy:
+      success: "Search was successfully deleted."
+      failure: "Failed to delete search."
 
     any: "Any"
     requests: "Requests"
@@ -165,3 +182,7 @@ en:
       search: "Search"
       reset: "Reset"
       back_home: "Back to Home page"
+
+  authorization:
+    access_denied: "Access denied."
+    

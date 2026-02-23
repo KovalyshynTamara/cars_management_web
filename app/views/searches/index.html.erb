@@ -3,50 +3,39 @@
   <h1 class="text-3xl font-bold text-purple-700 mb-8">
     <%= t("searches.index.title") %>
   </h1>
-
   <% if @searches.any? %>
-
     <div class="space-y-6">
-
       <% @searches.each do |search| %>
         <% rules = search.rules %>
-
         <div class="bg-white shadow rounded-xl p-6 flex justify-between items-center hover:shadow-lg transition">
-
           <div class="space-y-2 text-sm text-gray-700">
-
             <div class="flex gap-4 flex-wrap">
               <span>
                 <strong><%= t("searches.attributes.make") %>:</strong>
                 <%= rules["make"].presence || "-" %>
               </span>
-
               <span>
                 <strong><%= t("searches.attributes.model") %>:</strong>
                 <%= rules["model"].presence || "-" %>
               </span>
             </div>
-
             <div class="flex gap-4 flex-wrap">
               <span>
                 <strong><%= t("searches.attributes.year") %>:</strong>
                 <%= rules["year_from"].presence || t("searches.any") %> –
                 <%= rules["year_to"].presence || t("searches.any") %>
               </span>
-
               <span>
                 <strong><%= t("searches.attributes.price") %>:</strong>
                 <%= rules["price_from"].presence || t("searches.any") %> –
                 <%= rules["price_to"].presence || t("searches.any") %>
               </span>
             </div>
-
             <div class="text-xs text-gray-500">
               <%= t("searches.requests") %>:
               <span class="font-semibold"><%= search.requests_quantity %></span>
             </div>
           </div>
-
           <div class="flex gap-3">
             <%= link_to t("searches.actions.run"),
                   cars_path(rules),

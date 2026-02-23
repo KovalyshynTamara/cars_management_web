@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "User registration", type: :request do
   describe "POST /users" do
     it "allows full_name parameter" do

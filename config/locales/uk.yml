@@ -58,6 +58,16 @@ uk:
     units:
       km: "км"
 
+    destroy:
+      success: "Авто успішно видалено."
+      failure: "Не вдалося видалити авто."
+
+    sorting:
+      price_asc: "Ціна: від дешевих до дорогих"
+      price_desc: "Ціна: від дорогих до дешевих"
+      date_desc: "Дата: найновіші"
+      date_asc: "Дата: найстаріші"
+
   activerecord:
     models:
       car: "Авто"
@@ -155,6 +165,14 @@ uk:
       run: "Виконати пошук"
       delete: "Видалити"
 
+    create:
+      success: "Авто успішно створено."
+    update:
+      success: "Авто успішно оновлено."
+    destroy:
+      success: "Пошук успішно видалено."
+      failure: "Не вдалося видалити пошук."
+
     any: "Будь-який"
     requests: "Запити"
     empty: "Збережених пошуків ще немає."
@@ -185,3 +203,6 @@ uk:
       search: "Шукати"
       reset: "Скинути"
       back_home: "Назад на головну"
+
+  authorization:
+    access_denied: "Доступ заборонено."

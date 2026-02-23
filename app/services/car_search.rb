@@ -4,9 +4,15 @@ class CarSearch
   DEFAULT_SORT    = "date_added"
   DEFAULT_DIR     = "desc"
 
-  def initialize(scope, params)
-    @scope  = scope
-    @params = params
+  def initialize(scope = Car.all, params = {})
+    @scope = scope
+
+    @params =
+      if params.respond_to?(:permit!)
+        params.permit!.to_h.symbolize_keys
+      else
+        params.to_h.symbolize_keys
+      end
   end
 
   def call
@@ -32,10 +38,22 @@ class CarSearch
   end
 
   def apply_sorting(scope)
-    sort      = SORT_OPTIONS.include?(@params[:sort]) ? @params[:sort] : DEFAULT_SORT
-    direction = SORT_DIRECTIONS.include?(@params[:direction]) ? @params[:direction] : DEFAULT_DIR
+    sort, direction = extract_sorting
+    scope.order(sort => direction.to_sym)
+  end
 
-    scope.order(sort => direction)
+  def extract_sorting
+    if @params[:sorting].present?
+      sort, direction = @params[:sorting].split("_")
+    else
+      sort = @params[:sort]
+      direction = @params[:direction]
+    end
+
+    sort = SORT_OPTIONS.include?(sort) ? sort : DEFAULT_SORT
+    direction = SORT_DIRECTIONS.include?(direction) ? direction : DEFAULT_DIR
+
+    [ sort, direction ]
   end
 
   def present?(key)

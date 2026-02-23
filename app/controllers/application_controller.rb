@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Pagy::Backend
-
   allow_browser versions: :modern
   stale_when_importmap_changes
 
@@ -13,6 +11,14 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  private
+
+  def authorize_admin!
+    return if current_user&.admin?
+
+    redirect_to root_path, alert: t("authorization.access_denied")
   end
 
   protected

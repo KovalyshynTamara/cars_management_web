@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe "ApplicationController locale", type: :request do
   describe "locale handling" do
     it "sets locale from params" do

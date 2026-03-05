@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Cars Management" %></title>
+    <title><%= content_for(:title) || t("app.name") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Cars Management">
@@ -22,8 +22,21 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="min-h-screen flex flex-col bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-white flex flex-col flex-grow">
+      <header class="text-purple-600 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-xl font-bold">
+            <%= link_to t("app.name"), root_path, class: "hover:text-purple-800" %>
+          </div>
+          <%= render "layouts/navigation" %>
+        </div>
+      </header>
+      <%= render "layouts/flash" %>    
+      <main class="flex-grow py-6">
+        <%= yield %>
+      </main>
+    </div>
+    <%= render "layouts/footer"%>
   </body>
 </html>

@@ -1,31 +1,188 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  app:
+    name: "Car Advertisements Web"
+    footer: "Cars Advertisements Web Company"
+
+  navigation:
+    home: "Home"
+    cars: "Cars"
+    search: "Search"
+    help: "Help"
+    login: "Login"
+    sign_up: "Sign Up"
+    logout: "Log Out"
+    my_searches: "My Searches"
+
+  home:
+    hero_description: "Browse, search, and manage car advertisements. This is a simple learning project demonstrating basic CRUD operations and authentication patterns."
+    browse_description: "View all car advertisements with sorting and pagination."
+    search_description: "Find specific cars using advanced search filters."
+    signup_description: "Sign up to save searches and manage your preferences."
+    help_description: "Learn how to use the platform and find answers to common questions."
+    about_title: "About This Project"
+    about_description: "This is a reference implementation for learning Ruby on Rails with a Tailwind CSS frontend. The UI is intentionally minimal to focus on functionality and best practices."
+
+  cars:
+    index:
+      title: "Car Listings"
+      advanced_search: "Advanced Search →"
+      add_new: "Add New Car"
+      showing: "Showing"
+      of: "of"
+      results: "results"
+      sort_by: "Sort by:"
+      back_home: "Back to Home page"
+
+    attributes:
+      id: "Id"
+      make: "Make"
+      model: "Model"
+      year: "Year"
+      odometer: "Odometer"
+      price: "Price"
+      description: "Description"
+      date_added: "Date added"
+
+    form:
+      add_title: "Add New Car"
+      edit_title: "Edit Car"
+      submit: "Save Car"
+      back_to_cars: "← Back to Cars"
+
+    create:
+      success: "Car was successfully created."
+    update:
+      success: "Car was successfully updated."
+    destroy:
+      success: "Car was successfully deleted."
+      failure: "Car could not be deleted."
+
+    units:
+      km: "km"
+
+    show:
+      edit: "Edit"
+      delete: "Delete"
+      back: "Back to Cars"
+      confirm_delete: "Are you sure?"
+    
+    sorting:
+      price_asc: "Price: Low to High"
+      price_desc: "Price: High to Low"
+      date_desc: "Date: Most Recent"
+      date_asc: "Date: Oldest First"
+
+  activerecord:
+    models:
+      car: "Car"
+    attributes:
+      car:
+        make: "Make"
+        model: "Model"
+        year: "Year"
+        odometer: "Odometer"
+        price: "Price"
+        description: "Description"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%d %b %Y"
+    
+  number:
+    currency:
+      format:
+        unit: "$"
+        format: "%u%n"
+        delimiter: ","
+        separator: "."
+        precision: 0
+
+
+  help:
+    title: "Help & Documentation"
+    getting_started: "Getting Started"
+    faq_title: "Frequently Asked Questions"
+    back_home: "Back to home page"
+
+    steps:
+      browse:
+        title: "1. Browse Cars"
+        text: "Navigate to the Cars page to view all available car advertisements. You can sort by price, year, or mileage, and use pagination to browse through listings."
+      search:
+        title: "2. Search for Specific Cars"
+        text: "Use the Search page to filter cars by make, model, year range, and price range. This allows you to quickly find cars that match your criteria."
+      account:
+        title: "3. Create an Account"
+        text: "Sign up for an account to save your searches and access them later."
+
+    faq:
+      save_search:
+        q: "How do I save a search?"
+        a_html: 'You must be logged in to save searches. After performing a search, click the <span class="font-medium">"Save Search"</span> button.'
+      sort:
+        q: "How do I sort the car listings?"
+        a: "On the Cars page, use the dropdown menu to select a sorting option."
+      results:
+        q: "How many results are shown per page?"
+        a_html: 'By default, <span class="font-medium">10 results</span> are shown per page.'
+      real:
+        q: "Is this a real car marketplace?"
+        a: "This is only a learning project demonstrating Rails and Tailwind CSS integration."
+
+    more_help:
+      title: "Need More Help?"
+      text: "This is a demo application. Refer to the Rails documentation or project README."
+
+  searches:
+    index:
+      title: "My Saved Searches"
+
+    attributes:
+      make: "Make"
+      model: "Model"
+      year: "Year"
+      price: "Price"
+
+    actions:
+      run: "Run Search"
+      delete: "Delete"
+    
+    destroy:
+      success: "Search was successfully deleted."
+      failure: "Failed to delete search."
+
+    any: "Any"
+    requests: "Requests"
+    empty: "No saved searches yet."
+    back_home: "Back to Home"
+    confirm_delete: "Are you sure?"
+
+  search:
+    form:
+      title: "Search Cars"
+      subtitle: "Use the filters below to find cars that match your criteria."
+
+    attributes:
+      make: "Make"
+      model: "Model"
+      year_range: "Year Range"
+      price_range: "Price Range ($)"
+      odometer_range: "Kilometers Range (km)"
+
+    placeholders:
+      make: "e.g. BMW, Audi, Toyota"
+      model: "e.g. Camry, Corolla"
+      from: "From"
+      to: "To"
+      min_price: "Min price"
+      max_price: "Max price"
+
+    actions:
+      search: "Search"
+      reset: "Reset"
+      back_home: "Back to Home page"
+
+  authorization:
+    access_denied: "Access denied."
+    

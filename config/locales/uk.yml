@@ -1,0 +1,208 @@
+uk:
+  app:
+    name: "Вебплатформа оголошень про авто"
+    footer: "Компанія Car Advertisements Web"
+
+  navigation:
+    home: "Головна"
+    cars: "Авто"
+    search: "Пошук"
+    help: "Допомога"
+    login: "Увійти"
+    sign_up: "Зареєструватися"
+    logout: "Вийти"
+    my_searches: "Мої пошуки"
+
+  home:
+    hero_description: "Переглядайте, шукайте та керуйте оголошеннями про продаж авто. Це навчальний проєкт, який демонструє базові CRUD-операції та патерни автентифікації."
+    browse_description: "Переглядайте всі оголошення з можливістю сортування та пагінації."
+    search_description: "Знаходьте потрібні автомобілі за допомогою розширених фільтрів пошуку."
+    signup_description: "Зареєструйтеся, щоб зберігати пошуки та керувати своїми налаштуваннями."
+    help_description: "Дізнайтеся, як користуватися платформою, та знайдіть відповіді на поширені запитання."
+    about_title: "Про цей проєкт"
+    about_description: "Це приклад реалізації для вивчення Ruby on Rails із використанням Tailwind CSS для фронтенду."
+
+  cars:
+    index:
+      title: "Список автомобілів"
+      advanced_search: "Розширений пошук →"
+      add_new: "Додати авто"
+      showing: "Показано"
+      of: "з"
+      results: "результатів"
+      sort_by: "Сортувати за:"
+      back_home: "Повернутися на головну"
+
+    form:
+      add_title: "Додати авто"
+      edit_title: "Редагувати авто"
+      submit: "Зберегти авто"
+      back_to_cars: "← Назад до списку авто"
+
+    show:
+      edit: "Редагувати"
+      delete: "Видалити"
+      back: "Назад до списку авто"
+      confirm_delete: "Ви впевнені?"
+
+    attributes:
+      id: "ID"
+      make: "Марка"
+      model: "Модель"
+      year: "Рік"
+      odometer: "Пробіг"
+      price: "Ціна"
+      description: "Опис"
+      date_added: "Дата додавання"
+
+    units:
+      km: "км"
+
+    destroy:
+      success: "Авто успішно видалено."
+      failure: "Не вдалося видалити авто."
+
+    sorting:
+      price_asc: "Ціна: від дешевих до дорогих"
+      price_desc: "Ціна: від дорогих до дешевих"
+      date_desc: "Дата: найновіші"
+      date_asc: "Дата: найстаріші"
+
+  activerecord:
+    models:
+      car: "Авто"
+    attributes:
+      car:
+        make: "Марка"
+        model: "Модель"
+        year: "Рік"
+        odometer: "Пробіг"
+        price: "Ціна"
+        description: "Опис"
+
+  number:
+    currency:
+      format:
+        unit: "₴"
+        format: "%n %u"
+        delimiter: " "
+        separator: ","
+        precision: 0
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b %Y"
+
+  help:
+    title: "Допомога та документація"
+    getting_started: "Початок роботи"
+    faq_title: "Поширені запитання"
+    back_home: "Назад на головну"
+
+    steps:
+      browse:
+        title: "1. Перегляд авто"
+        text: "Перейдіть на сторінку Авто, щоб переглянути всі доступні оголошення."
+      search:
+        title: "2. Пошук авто"
+        text: "Використовуйте сторінку Пошуку для фільтрації авто за маркою, моделлю, роком та ціною."
+      account:
+        title: "3. Створення акаунта"
+        text: "Зареєструйтеся, щоб зберігати свої пошуки та мати доступ до них пізніше."
+
+    faq:
+      save_search:
+        q: "Як зберегти пошук?"
+        a_html: 'Щоб зберегти пошук, потрібно увійти в систему. Після виконання пошуку натисніть кнопку <span class="font-medium">"Зберегти пошук"</span>.'
+      sort:
+        q: "Як відсортувати список авто?"
+        a: "На сторінці Авто використовуйте випадаючий список для вибору способу сортування."
+      results:
+        q: "Скільки результатів відображається на сторінці?"
+        a_html: 'За замовчуванням відображається <span class="font-medium">10 результатів</span> на сторінці.'
+      real:
+        q: "Це справжній маркетплейс?"
+        a: "Ні, це навчальний проєкт для демонстрації Rails та Tailwind CSS."
+
+    more_help:
+      title: "Потрібна додаткова допомога?"
+      text: "Це демонстраційний застосунок. Ознайомтеся з документацією Rails або README проєкту."
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "не може бути порожнім"
+      too_short:
+        one: "занадто коротке (мінімум %{count} символ)"
+        few: "занадто коротке (мінімум %{count} символи)"
+        many: "занадто коротке (мінімум %{count} символів)"
+        other: "занадто коротке (мінімум %{count} символів)"
+      too_long:
+        one: "занадто довге (максимум %{count} символ)"
+        few: "занадто довге (максимум %{count} символи)"
+        many: "занадто довге (максимум %{count} символів)"
+        other: "занадто довге (максимум %{count} символів)"
+      invalid: "має неправильний формат"
+      not_a_number: "не є числом"
+      greater_than: "має бути більше ніж %{count}"
+      greater_than_or_equal_to: "має бути більше або дорівнювати %{count}"
+      less_than: "має бути менше ніж %{count}"
+      less_than_or_equal_to: "має бути менше або дорівнювати %{count}"
+      taken: "вже використовується"
+
+  searches:
+    index:
+      title: "Мої збережені пошуки"
+
+    attributes:
+      make: "Марка"
+      model: "Модель"
+      year: "Рік"
+      price: "Ціна"
+
+    actions:
+      run: "Виконати пошук"
+      delete: "Видалити"
+
+    create:
+      success: "Авто успішно створено."
+    update:
+      success: "Авто успішно оновлено."
+    destroy:
+      success: "Пошук успішно видалено."
+      failure: "Не вдалося видалити пошук."
+
+    any: "Будь-який"
+    requests: "Запити"
+    empty: "Збережених пошуків ще немає."
+    back_home: "Назад на головну"
+    confirm_delete: "Ви впевнені?"
+
+  search:
+    form:
+      title: "Пошук авто"
+      subtitle: "Скористайтеся фільтрами нижче, щоб знайти автомобілі за вашими критеріями."
+
+    attributes:
+      make: "Марка"
+      model: "Модель"
+      year_range: "Діапазон років"
+      price_range: "Діапазон цін (₴)"
+      odometer_range: "Діапазон пробігу (км)"
+
+    placeholders:
+      make: "наприклад: BMW, Audi, Toyota"
+      model: "наприклад: Camry, Corolla"
+      from: "Від"
+      to: "До"
+      min_price: "Мін. ціна"
+      max_price: "Макс. ціна"
+
+    actions:
+      search: "Шукати"
+      reset: "Скинути"
+      back_home: "Назад на головну"
+
+  authorization:
+    access_denied: "Доступ заборонено."
